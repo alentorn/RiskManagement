@@ -1,4 +1,5 @@
-{
+{  
+    
   "name": "risk-management",
   "version": "2.0.0",
   "description": "Template for the Learning Journey Building side-by-side extensions on SAP BTP",
@@ -12,13 +13,9 @@
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^2.5.0",
     "@sap/cds": "^6",
-    "express": "^4",
-    "@sap/cds-hana": "^2",
-    "@sap/xssec": "^3",
-    "passport": "^0"
+    "express": "^4"
   },
   "devDependencies": {
-    "@sap/cds-dk": "^7",
     "@sap/ux-specification": "^1.108.12",
     "sqlite3": "^5.0.4"
   },
@@ -54,19 +51,23 @@
   "cds": {
     "requires": {
       "API_BUSINESS_PARTNER": {
-        "kind": "odata",
-        "model": "srv/external/API_BUSINESS_PARTNER",
-        "credentials": {
-          "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
-        }
-      },
-      "[production]": {
-        "db": "hana",
-        "auth": "xsuaa"
+        "kind": "odata-v2",
+        "model": "srv\\external\\API_BUSINESS_PARTNER"
       }
     }
   },
+  "cds": {
+    "requires": {
+      "API_BUSINESS_PARTNER": {
+        "kind": "odata",
+        "model": "srv/external/API_BUSINESS_PARTNER",
+        "credentials": {
+           "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
+        }
+     }
+   } 
+  },
   "sapux": [
     "app/risks"
-  ]
+    ]
 }
