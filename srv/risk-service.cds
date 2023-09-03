@@ -13,6 +13,11 @@ using { riskmanagement as rm } from '../db/schema';
           }
     ]) as projection on rm.Risks;
      annotate Risks with @odata.draft.enabled;
+      /**
+   *  multi-line comment, 
+   *  for doxygen-style, 
+   *  comments and annotations
+   */
  entity Mitigations @(restrict : [
           {
             grant : [ 'READ' ],
